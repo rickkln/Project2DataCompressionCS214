@@ -1,69 +1,72 @@
 /*************************************************************************
- *  Compilation:  javac Heap.java
- *  Execution:    java Heap < input.txt
- *  Dependencies: StdOut.java StdIn.java
- *  Data files:   http://algs4.cs.princeton.edu/24pq/tiny.txt
- *                http://algs4.cs.princeton.edu/24pq/words3.txt
- *  
- *  Sorts a sequence of strings from standard input using heapsort.
- *
- *  % more tiny.txt
- *  S O R T E X A M P L E
- *
- *  % java Heap < tiny.txt
- *  A E E L M O P R S T X                 [ one string per line ]
- *
- *  % more words3.txt
- *  bed bug dad yes zoo ... all bad yet
- *
- *  % java Heap < words3.txt
- *  all bad bed bug dad ... yes yet zoo   [ one string per line ]
- *  
-  	sufs[i] = (String)read2.subSequence(i, i+read.length());
- *
+ * PF (Rick) Kleinhans - 16959787
+ * 
+ * Custom heap sort to sort int array.
+ * Uses String called "read" to sort int array based on alphabetical order
+ * of substrings in read which match int index and are half the length of read.
  *************************************************************************/
 
 public class HeapInt {
 
-    public static void sort(int[] pq, String read2) {
+	/**
+	 * Standard heap sort method, but using read String.
+	 * @param pq
+	 * @param read
+	 */
+    public static void sort(int[] pq, String read) {
         int N = pq.length;
         for (int k = N/2; k >= 1; k--)
-            sink(pq, k, N, read2);
+            sink(pq, k, N, read);
         while (N > 1) {
             exch(pq, 1, N--);
-            sink(pq, 1, N, read2);
+            sink(pq, 1, N, read);
         }
     }
 
-   /***********************************************************************
-    * Helper functions to restore the heap invariant.
-    **********************************************************************/
-
-    private static void sink(int[] pq, int k, int N, String read2) {
+    /**
+     * Helper functions to restore the heap invariant.
+     * Customized to use read string
+     * @param pq
+     * @param k
+     * @param N
+     * @param read
+     */
+    private static void sink(int[] pq, int k, int N, String read) {
         while (2*k <= N) {
             int j = 2*k;
-            if (j < N && less(pq, j, j+1, read2)) j++;
-            if (!less(pq, k, j, read2)) break;
+            if (j < N && less(pq, j, j+1, read)) j++;
+            if (!less(pq, k, j, read)) break;
             exch(pq, k, j);
             k = j;
         }
     }
 
-   /***********************************************************************
-    * Helper functions for comparisons and swaps.
-    * Indices are "off-by-one" to support 1-based indexing.
-    **********************************************************************/
-    private static boolean less(int[] pq, int i, int j, String read2) {
-        return read2.substring(pq[i-1], pq[i-1]+(read2.length()/2)).compareTo(read2.substring(pq[j-1], pq[j-1]+(read2.length()/2))) < 0;
+    /**
+     * Helper functions for comparisons and swaps.
+     * Indices are "off-by-one" to support 1-based indexing.
+     * Read string added.
+     * @param pq
+     * @param i
+     * @param j
+     * @param read
+     * @return
+     */
+    private static boolean less(int[] pq, int i, int j, String read) {
+        return read.substring(pq[i-1], pq[i-1]+(read.length()/2)).compareTo(read.substring(pq[j-1], pq[j-1]+(read.length()/2))) < 0;
     }
 
+    /**
+     * Standard exhange method from Algorithms 4.
+     * @param pq
+     * @param i
+     * @param j
+     */
     private static void exch(int[] pq, int i, int j) {
         int swap = pq[i-1];
         pq[i-1] = pq[j-1];
         pq[j-1] = swap;
     }
         
-    // Read strings from standard input, sort them, and print.
     public static void main(int[] args) {
     }
 }

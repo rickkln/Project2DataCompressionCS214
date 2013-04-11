@@ -1,6 +1,14 @@
+/*************************************************************************
+ * PF (Rick) Kleinhans - 16959787
+ * 
+ * MoveToFront class 
+ *************************************************************************/
 
 public class MoveToFront{
   
+  /**
+   * 
+   */
   public static void encode(){
     char [] ascii = new char[256];
     for(int i = 0; i < 256; i++) 
@@ -24,6 +32,9 @@ public class MoveToFront{
       BinaryStdOut.close();
   }
   
+  /**
+   * 
+   */
   public static void decode(){
     char [] ascii = new char[256];
     for(int i = 0; i < 256; i++) 
@@ -41,6 +52,10 @@ public class MoveToFront{
       BinaryStdOut.close();
   }
   
+  /**
+   * 
+   * @param args
+   */
   public static void main(String[] args){
     Stopwatch watch = new Stopwatch();
     if(args[0].charAt(0) == '-') 
