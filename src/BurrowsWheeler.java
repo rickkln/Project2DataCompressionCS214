@@ -28,6 +28,14 @@ public class BurrowsWheeler{
   public static Stopwatch stop;
   
   public static void decode(){
+	int key=BinaryStdIn.readInt();
+	char [] read = BinaryStdIn.readString().toCharArray();
+	char [] sorted = read;
+	HeapChar.sort(sorted);
+	
+	for(int i=0; i<256; i++)
+		read[i];
+	   
 	/*StdOut.println("Encoded");
     StdOut.println(stop.elapsedTime());
     int key=BinaryStdIn.readInt();
