@@ -23,9 +23,6 @@ public class BurrowsWheeler{
     
     BinaryStdOut.close();
   }
-
-  public static char[] readSorted; 
-  public static Stopwatch stop;
   
   public static void decode(){
 	int first = BinaryStdIn.readInt();
@@ -48,13 +45,6 @@ public class BurrowsWheeler{
 		indx[(int) read[i]]++;
 	}
 	
-	/*StdOut.println(first);
-	
-	for(int i=0; i<length; i++)
-		StdOut.print(next[i]);
-	
-	StdOut.println();*/
-	
     for(int i=0; i<length; i++){
       BinaryStdOut.write(sort[first]);
       first=next[first];
@@ -64,12 +54,13 @@ public class BurrowsWheeler{
   }
 
   public static void main(String[] args) {
-    stop = new Stopwatch();
+	  Stopwatch stop = new Stopwatch();
     if(args[0].charAt(0)=='-'){
       encode();
       StdOut.println(stop.elapsedTime());
     }else if(args[0].charAt(0)=='+'){
       decode();
+      StdOut.println(stop.elapsedTime());
     }
   }
 }
