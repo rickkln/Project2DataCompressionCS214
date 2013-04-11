@@ -1,0 +1,17 @@
+Place all included files in the main test directory!
+*The updated tests test your program against all 29 files included <- not the same as tests.py
+*There is an exception to the 29 test rule, made only for the BurrowsWheeler encoding as well as the GZ test
+*This can easily be changed, replace the original file list with the one at the top
+*tests_updated.py will tell you when a test failed due to a no run, 
+ this could either mean an exception was thrown by your program or the 
+ java runtime could not locate certain dependencies / classes. fix this and try again.
+*Use tests_updated.py as you would tests.py.
+
+In addition, to compare your program's compression to ubuntu/GNU gzip compression 
+do the following (only do this if your program has passed all other checks!!):
+
+exectue runOnce.sh
+then
+execute python gzipratio.py
+
+this gzipratio will always be the same

@@ -66,7 +66,7 @@ print '\033[1mTesting %s %s\033[0m (%d tests)' % (algorithm_name, direction_name
 print '================================================================================'
 t = time.time()
 for f in filenames:
-    temp = time.time()
+    #temp = time.time()
     print '', f.ljust(71),
     with open('%s/%s' % (infolder, f)) as infile, open('%s/%s' % (testfolder, f)) as testfile, open(os.devnull, 'w') as devnull:
         try:
@@ -75,7 +75,7 @@ for f in filenames:
             output = subprocess.check_output(commands[-1].split(), stdin=infile, stderr=devnull)
             if output == testfile.read():
                 print '\033[92mpassed\033[0m'
-                print 'Time so far: %.2f seconds' % (time.time() - temp)
+                #print 'Time so far: %.2f seconds' % (time.time() - temp)
                 passed += 1
             else:
                 print '\033[91mfailed\033[0m'

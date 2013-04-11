@@ -28,62 +28,39 @@ public class BurrowsWheeler{
   public static Stopwatch stop;
   
   public static void decode(){
-	int key=BinaryStdIn.readInt();
-	char [] read = BinaryStdIn.readString().toCharArray();
-	char [] sorted = read;
-	HeapChar.sort(sorted);
+	int first = BinaryStdIn.readInt();
+	String string = BinaryStdIn.readString();
+	char [] read = string.toCharArray();
+	char [] sort = string.toCharArray();
+	HeapChar.sort(sort);
+	int length = read.length;
+	int [] indx = new int[256];
+	int [] next = new int[length];
 	
-	for(int i=0; i<256; i++)
-		read[i];
-	   
-	/*StdOut.println("Encoded");
-    StdOut.println(stop.elapsedTime());
-    int key=BinaryStdIn.readInt();
-    String read=BinaryStdIn.readString();
-    char [] readT = read.toCharArray();
-    readSorted=read.toCharArray();
-    HeapChar.sort(readSorted); 
-    StdOut.println("\nSortedChar");
-    StdOut.println(stop.elapsedTime());
-    int count1 = 0;
-    int count2 = 0;
-    int row = 0;
-    boolean found = false;
-    Integer next[]= new Integer [read.length()];
-
-    for(int i=0; i<read.length();i++) {
-      for(int j=0; j<read.length();j++) {     
-        if((readSorted[i] == readT[j])&&(!found)) {
-          if(count2<count1)
-            count2++;
-          else {
-            row = j;
-            found=true;
-          }
-        } 
-      } 
-      next[i]= row;
-      count2 = 0;
-      found = false;
-      if(i < read.length()-1) {
-        if(readSorted[i+1] == readSorted[i])
-          count1++;
-        else 
-          count1 = 0;
-      }
+	for(int i=0; i<length; i++) {
+		indx[(int) sort[i]] = i;
+		while(i<length-1 && sort[i] == sort[i+1]) 
+			i++;
+	}
+	
+	for(int i=0; i<length; i++) {
+		next[indx[(int) read[i]]] = i;
+		indx[(int) read[i]]++;
+	}
+	
+	/*StdOut.println(first);
+	
+	for(int i=0; i<length; i++)
+		StdOut.print(next[i]);
+	
+	StdOut.println();*/
+	
+    for(int i=0; i<length; i++){
+      BinaryStdOut.write(sort[first]);
+      first=next[first];
     }
-    
-    StdOut.println("\nNextArrayConstructed");
-    StdOut.println(stop.elapsedTime());
-    int nextToPrint=key;
-    for(int i=0; i<read.length(); i++){
-      //BinaryStdOut.write(readSorted[nextToPrint]);
-      nextToPrint=next[nextToPrint];
-    }
-    StdOut.println("\nTotal");
-    StdOut.println(stop.elapsedTime());
 
-    BinaryStdOut.close();*/
+    BinaryStdOut.close();
   }
 
   public static void main(String[] args) {
