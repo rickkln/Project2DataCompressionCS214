@@ -1,0 +1,11 @@
+Extract the archive into the same directory as your class files. Run with
+
+    python tests.py <algorithm> <direction>
+
+where <algorithm> must be one of "BW" (Burrows-Wheeler), "MTF" (Move-to-front) or "GZ" (Gzip) and <direction> must be one of "-" (encoding) or "+" (decoding).
+
+For example, the command
+
+    python tests.py BW -
+
+will run the test suite for Burrows-Wheeler encoding.
