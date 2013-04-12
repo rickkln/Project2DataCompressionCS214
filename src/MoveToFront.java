@@ -7,7 +7,11 @@
 public class MoveToFront{
   
   /**
-   * 
+   *  Given a text file in which sequences of the same character occur 
+   *  near each other many times, convert it into a text file in which 
+   *  certain characters appear more frequently than others.
+   *  
+   *  Depends on ASCII array.
    */
   public static void encode(){
     char [] ascii = new char[256];
@@ -33,7 +37,7 @@ public class MoveToFront{
   }
   
   /**
-   * 
+   * Decoding from an Move To Front encoded file.
    */
   public static void decode(){
     char [] ascii = new char[256];
@@ -52,10 +56,6 @@ public class MoveToFront{
       BinaryStdOut.close();
   }
   
-  /**
-   * 
-   * @param args
-   */
   public static void main(String[] args){
     Stopwatch watch = new Stopwatch();
     if(args[0].charAt(0) == '-') 

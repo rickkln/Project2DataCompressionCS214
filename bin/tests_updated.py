@@ -28,7 +28,7 @@ else:
 if algorithm == 'BW':
     algorithm_name = 'Burrows-Wheeler'
     if direction == '-':
-        commands = ('java -Xmx1500m BurrowsWheeler -',)
+        commands = ('java -Xmx2048m BurrowsWheeler -',)
         filenames = ('aaaaaaaaaa.txt', 'abra.txt', 'abbbaabbbbaccabbaaabc.txt', 'nomatch.txt', 'redundant.txt', 'redundant-2copies.txt', 'princeton.txt', 'moby1.txt', 'amendments.txt', 'y2kintro.txt', 'babble.txt', 'sedgewick-speech.txt', 'manifesto.txt', 'sedgewick-algc.txt', 'sedgewick-algjava.txt', 'muchado.txt', 'aesop.txt', 'starr.txt', 'pi-1million.txt', 'lilwomen.txt', 'mobydick.txt', 'world192.txt')
         infolder = 'textfiles'
         testfolder = 'bw_files'
@@ -52,7 +52,7 @@ elif algorithm == 'MTF':
 elif algorithm == 'GZ':
     algorithm_name = 'Gzip'
     if direction == '-':
-        commands = ('java -Xmx1500m BurrowsWheeler -', 'java -Xmx1500m MoveToFront -', 'java -Xmx1500m Huffman -')
+        commands = ('java -Xmx2048m BurrowsWheeler -', 'java -Xmx2048m MoveToFront -', 'java -Xmx2048m Huffman -')
         filenames = ('aaaaaaaaaa.txt', 'abra.txt', 'abbbaabbbbaccabbaaabc.txt', 'nomatch.txt', 'redundant.txt', 'redundant-2copies.txt', 'princeton.txt', 'moby1.txt', 'amendments.txt', 'y2kintro.txt', 'babble.txt', 'sedgewick-speech.txt', 'manifesto.txt', 'sedgewick-algc.txt', 'sedgewick-algjava.txt', 'muchado.txt', 'aesop.txt', 'starr.txt', 'pi-1million.txt', 'lilwomen.txt', 'mobydick.txt', 'world192.txt')
         infolder = 'textfiles'
         testfolder = 'h_files'
@@ -110,6 +110,11 @@ table.header(head);
 data = data.items()
 data.sort()
 for i in data:
-    table.add_row([i[0]] + i[1])
+    temp = [i[0]] + i[1]
+    if(temp==None):
+	temp = []
+    while(len(temp)<5):
+    	temp += ["N/A"] 
+    table.add_row(temp)
 print(table.draw())
     

@@ -10,7 +10,10 @@ import java.util.Arrays;
 public class BurrowsWheeler{ 
   
   /**
-   * 	
+   * Given a typical English text file, transform it into a text file 
+   * in which sequences of the same character occur near each other many times.	
+   * 
+   * Using Custom Merge sort to sort files based on read2 string.
    */
   public static void encode(){
     String read = BinaryStdIn.readString();
@@ -36,7 +39,8 @@ public class BurrowsWheeler{
   }
   
   /**
-   * 
+   * Decoding from an Burrows Wheeler encoded file.
+   * Uses normal Array.sort.
    */
   public static void decode(){
 	int first = BinaryStdIn.readInt();
@@ -66,10 +70,6 @@ public class BurrowsWheeler{
     BinaryStdOut.close();
   }
 
-  /**
-   * 
-   * @param args
-   */
   public static void main(String[] args) {
 	Stopwatch stop = new Stopwatch();
     if(args[0].charAt(0)=='-'){
