@@ -23,7 +23,7 @@ public class BurrowsWheeler{
     for(int i=0; i<read.length(); i++)
       sufs[i] = i;
     
-    CustomMerge.sort(sufs, read2);
+    HeapInt.sort(sufs, read2);
       
     int num = 0; boolean found = false; 
     while(!found) {

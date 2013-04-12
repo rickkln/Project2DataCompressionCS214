@@ -26,7 +26,7 @@ if algorithm == 'BW':
     algorithm_name = 'Burrows-Wheeler'
     if direction == '-':
         commands = ('java BurrowsWheeler -',)
-        filenames = ('aaaaaaaaaa.txt', 'abra.txt', 'abbbaabbbbaccabbaaabc.txt', 'nomatch.txt', 'redundant.txt', 'redundant-2copies.txt', 'princeton.txt', 'moby1.txt', 'amendments.txt', 'y2kintro.txt', 'babble.txt', 'sedgewick-speech.txt', 'manifesto.txt', 'sedgewick-algc.txt', 'sedgewick-algjava.txt', 'muchado.txt', 'aesop.txt', 'starr.txt', 'pi-1million.txt', 'lilwomen.txt', 'mobydick.txt', 'world192.txt')
+        filenames = ('aaaaaaaaaa.txt', 'abra.txt', 'abbbaabbbbaccabbaaabc.txt', 'nomatch.txt', 'redundant.txt', 'redundant-2copies.txt', 'princeton.txt', 'moby1.txt', 'amendments.txt', 'y2kintro.txt', 'babble.txt', 'sedgewick-speech.txt', 'manifesto.txt', 'sedgewick-algc.txt', 'sedgewick-algjava.txt', 'muchado.txt', 'aesop.txt', 'starr.txt', 'aesop-2copies.txt', 'aesop-4copies.txt', 'pi-1million.txt', 'lilwomen.txt', 'mobydick.txt', 'world192.txt', 'bible.txt', 'ecoli.txt', 'chromosome11-human.txt', 'pi-10million.txt', 'dickens.txt')
         infolder = 'textfiles'
         testfolder = 'bw_files'
     elif direction == '+':
